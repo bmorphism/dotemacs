@@ -8,6 +8,8 @@
 (require 'pallet)
 (pallet-mode t)
 
+(load (concat "~/.emacs.d/" system-name ".el"))
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 

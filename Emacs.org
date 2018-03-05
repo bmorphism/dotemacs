@@ -9,6 +9,11 @@
 (require 'pallet)
 (pallet-mode t)
 #+END_SRC
+* User itemsg
+Avoid cluttering the file tree by storing all backups into the same location
+#+BEGIN_SRC emacs-lisp
+(load (concat "~/.emacs.d/" system-name ".el"))
+#+END_SRC
 * Appearance
 Lighter theme with minimum clutter to aid focus
 #+BEGIN_SRC emacs-lisp
@@ -117,6 +122,8 @@ http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 (global-set-key "\C-ca" 'org-agenda)
 
 (setq org-log-into-drawer t)
+
+(projectile-mode)
 #+END_SRC
 * Spellchecking
 #+BEGIN_SRC emacs-lisp

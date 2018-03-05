@@ -11,6 +11,7 @@
 (depends-on "mediawiki")
 (depends-on "multi-term")
 (depends-on "pallet")
+(depends-on "projectile")
 (depends-on "pyvenv")
 (depends-on "smex")
 (depends-on "swiper")
