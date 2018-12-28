@@ -13,14 +13,14 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-(load-theme 'adwaita t)
+(load-theme 'lab-dark t)
 
-(set-default-font "Hack-12")
+(set-default-font "Hack-15")
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . fullscreen)))))
+;;(custom-set-variables
+;; '(initial-frame-alist (quote ((fullscreen . fullscreen)))))
 
 (setq
    backup-by-copying t
@@ -50,6 +50,33 @@
                                  ("-o" "StrictHostKeyChecking=no")))
     (tramp-default-port         22)))
 
+(require 'epa-file)
+(custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
+(epa-file-enable)
+
+(require 'org)
+
+(global-set-key "\C-ca" 'org-agenda)
+
+(setq org-log-into-drawer t)
+
+(setq org-export-coding-system 'utf-8)
+
+(projectile-mode)
+
+(global-set-key "\C-cc" 'org-capture)
+
+(setq org-capture-templates
+ '(("j" "journal" plain (file "~/Scriptorium/barton/journal.org.gpg")
+        (file "~/.emacs.d/org-templates/journal.orgtmpl"))
+   ("s" "system" entry (file+datetree "~/Scriptorium/barton/System/data/daily.org")
+        (file "~/.emacs.d/org-templates/daily.orgtmpl"))
+))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python t)))
+
 (ivy-mode 1)
 
 (setq ivy-use-virtual-buffers t)
@@ -73,7 +100,7 @@
 
 (setq magit-completing-read-function 'ivy-completing-read)
 
-(global-set-key "\C-s" 'swiper)
+;;(global-set-key "\C-s" 'swiper)
 
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -90,12 +117,6 @@
 
 (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)
-
-(require 'org)
-
-(global-set-key "\C-ca" 'org-agenda)
-
-(setq org-log-into-drawer t)
 
 (dolist (hook '(text-mode-hook
                 org-mode-hook
