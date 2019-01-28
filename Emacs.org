@@ -217,6 +217,15 @@ http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
           (setq org-odt-preferred-output-format "docx")))
 
 #+END_SRC
+* Scriptorium
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-c s") (lambda () (interactive) (dired "~/Scriptorium/")))
+(setq initial-buffer-choice (concat "~/Scriptorium/" system-name))
+#+END_SRC
+
+#+RESULTS:
+: #<buffer learn>
+
 * Template
 https://www.gnu.org/software/emacs/manual/html_node/org/Easy-Templates.html
 < s Tab

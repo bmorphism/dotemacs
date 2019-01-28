@@ -151,4 +151,7 @@
   '(progn (require 'ox-odt nil t)
           (setq org-odt-preferred-output-format "docx")))
 
+(global-set-key (kbd "C-c s") (lambda () (interactive) (dired "~/Scriptorium/")))
+(setq initial-buffer-choice (concat "~/Scriptorium/" system-name))
+
 
