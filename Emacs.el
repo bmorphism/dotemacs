@@ -15,12 +15,12 @@
 
 (load-theme 'lab-dark t)
 
-(set-default-font "Hack-15")
+(set-default-font "Hack-12")
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
-;;(custom-set-variables
-;; '(initial-frame-alist (quote ((fullscreen . fullscreen)))))
+(custom-set-variables
+    '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 (setq
    backup-by-copying t
@@ -67,10 +67,16 @@
 (global-set-key "\C-cc" 'org-capture)
 
 (setq org-capture-templates
- '(("j" "journal" plain (file "~/Scriptorium/barton/journal.org.gpg")
-        (file "~/.emacs.d/org-templates/journal.orgtmpl"))
-   ("s" "system" entry (file+datetree "~/Scriptorium/barton/System/data/daily.org")
-        (file "~/.emacs.d/org-templates/daily.orgtmpl"))
+      '(
+        ("5" "5217" entry (file+datetree "~/Scriptorium/barton/System/data/5217_log.org")
+         (file "~/.emacs.d/org-templates/5217.orgtmpl"))
+        ("d" "daily" entry (file+datetree "~/Scriptorium/barton/System/data/daily_log.org")
+         (file "~/.emacs.d/org-templates/daily.orgtmpl"))
+        ("j" "journal" plain (file "~/Scriptorium/barton/journal.org.gpg")
+         (file "~/.emacs.d/org-templates/journal.orgtmpl"))
+
+        ("i" "inkvolt" entry (file+datetree "~/Scriptorium/barton/System/data/inkvolt_log.org")
+         (file "~/.emacs.d/org-templates/inkvolt.orgtmpl"))
 ))
 
 (org-babel-do-load-languages
