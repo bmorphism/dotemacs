@@ -29,6 +29,22 @@ Lighter theme with minimum clutter to aid focus
 (custom-set-variables
     '(initial-frame-alist (quote ((fullscreen . maximized)))))
 #+END_SRC
+** Terminal colors
+#+BEGIN_SRC emacs-lisp
+(custom-set-faces
+
+ '(term-color-black ((t (:foreground "#3F3F3F" :background "#2B2B2B"))))
+ '(term-color-red ((t (:foreground "#AC7373" :background "#8C5353"))))
+ '(term-color-green ((t (:foreground "#7F9F7F" :background "#9FC59F"))))
+ '(term-color-yellow ((t (:foreground "#DFAF8F" :background "#9FC59F"))))
+ '(term-color-blue ((t (:foreground "#7CB8BB" :background "#4C7073"))))
+ '(term-color-magenta ((t (:foreground "#DC8CC3" :background "#CC9393"))))
+ '(term-color-cyan ((t (:foreground "#93E0E3" :background "#8CD0D3"))))
+ '(term-color-white ((t (:foreground "#DCDCCC" :background "#656555"))))
+
+ '(term-default-fg-color ((t (:inherit term-color-white))))
+ '(term-default-bg-color ((t (:inherit term-color-black)))))
+#+END_SRC
 * Backups
 Avoid cluttering the file tree by storing all backups into the same location
 #+BEGIN_SRC emacs-lisp
@@ -104,9 +120,9 @@ Capture high-level information for projects.
 
 (setq org-capture-templates
       '(
-        ("5" "5217" entry (file+datetree "~/Scriptorium/barton/System/data/5217_log.org")
-	 (file "~/.emacs.d/org-templates/5217.orgtmpl"))
         ("d" "daily" entry (file+datetree "~/Scriptorium/barton/System/data/daily_log.org")
+	 (file "~/.emacs.d/org-templates/daily.orgtmpl"))
+        ("r" "refresh" entry (file+datetree "~/Scriptorium/barton/System/data/refresh_log.org")
 	 (file "~/.emacs.d/org-templates/daily.orgtmpl"))
         ("j" "journal" plain (file "~/Scriptorium/barton/journal.org.gpg")
 	 (file "~/.emacs.d/org-templates/journal.orgtmpl"))
@@ -118,8 +134,8 @@ Capture high-level information for projects.
 #+END_SRC
 
 #+RESULTS:
-| 5 | 5217    | entry | (file+datetree ~/Scriptorium/barton/System/data/5217_log.org)    | (file ~/.emacs.d/org-templates/5217.orgtmpl)    |
 | d | daily   | entry | (file+datetree ~/Scriptorium/barton/System/data/daily_log.org)   | (file ~/.emacs.d/org-templates/daily.orgtmpl)   |
+| r | refresh | entry | (file+datetree ~/Scriptorium/barton/System/data/refresh_log.org) | (file ~/.emacs.d/org-templates/daily.orgtmpl)   |
 | j | journal | plain | (file ~/Scriptorium/barton/journal.org.gpg)                      | (file ~/.emacs.d/org-templates/journal.orgtmpl) |
 | i | inkvolt | entry | (file+datetree ~/Scriptorium/barton/System/data/inkvolt_log.org) | (file ~/.emacs.d/org-templates/inkvolt.orgtmpl) |
 
@@ -228,6 +244,6 @@ http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 
 * Template
 https://www.gnu.org/software/emacs/manual/html_node/org/Easy-Templates.html
-< s Tab
+<s Tab
 #+BEGIN_SRC emacs-lisp
 #+END_SRC
