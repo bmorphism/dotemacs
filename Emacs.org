@@ -21,6 +21,7 @@ Lighter theme with minimum clutter to aid focus
 (tool-bar-mode -1)
 
 (load-theme 'lab-dark t)
+(window-divider-mode 1)
 
 (set-default-font "Hack-12")
 
@@ -120,22 +121,21 @@ Capture high-level information for projects.
 
 (setq org-capture-templates
       '(
-        ("d" "daily" entry (file+datetree "~/Scriptorium/barton/System/data/daily_log.org")
-	 (file "~/.emacs.d/org-templates/daily.orgtmpl"))
-        ("r" "refresh" entry (file+datetree "~/Scriptorium/barton/System/data/refresh_log.org")
-	 (file "~/.emacs.d/org-templates/daily.orgtmpl"))
+        ("5" "5217" plain (file+datetree "~/Scriptorium/barton/System/data/5217_log.org")
+	 (file "~/.emacs.d/org-templates/5217.orgtmpl"))
         ("j" "journal" plain (file "~/Scriptorium/barton/journal.org.gpg")
 	 (file "~/.emacs.d/org-templates/journal.orgtmpl"))
-
-	("i" "inkvolt" entry (file+datetree "~/Scriptorium/barton/System/data/inkvolt_log.org")
-	 (file "~/.emacs.d/org-templates/inkvolt.orgtmpl"))
+        ("r" "refresh" plain (file+datetree "~/Scriptorium/barton/System/data/refresh_log.org")
+	 (file "~/.emacs.d/org-templates/refresh.orgtmpl"))
+        ("R" "Reset" plain (file+datetree "~/Scriptorium/barton/System/data/reset_log.org")
+	 (file "~/.emacs.d/org-templates/reset.orgtmpl"))
 ))
 
 #+END_SRC
 
 #+RESULTS:
-| d | daily   | entry | (file+datetree ~/Scriptorium/barton/System/data/daily_log.org)   | (file ~/.emacs.d/org-templates/daily.orgtmpl)   |
-| r | refresh | entry | (file+datetree ~/Scriptorium/barton/System/data/refresh_log.org) | (file ~/.emacs.d/org-templates/daily.orgtmpl)   |
+| d | 5217   | entry | (file+datetree ~/Scriptorium/barton/System/data/daily_log.org)   | (file ~/.emacs.d/org-templates/daily.orgtmpl)   |
+| r | refresh | entry | (file+datetree ~/Scriptorium/barton/System/data/refresh_log.org) | (file ~/.emacs.d/org-templates/5217.orgtmpl)   |
 | j | journal | plain | (file ~/Scriptorium/barton/journal.org.gpg)                      | (file ~/.emacs.d/org-templates/journal.orgtmpl) |
 | i | inkvolt | entry | (file+datetree ~/Scriptorium/barton/System/data/inkvolt_log.org) | (file ~/.emacs.d/org-templates/inkvolt.orgtmpl) |
 
@@ -144,6 +144,19 @@ Capture high-level information for projects.
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python t)))
+#+END_SRC
+** evil-org
+#+BEGIN_SRC emacs-lisp
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading))))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 #+END_SRC
 ** TODO org-refile
 http://sachachua.com/blog/2015/02/learn-take-notes-efficiently-org-mode/
@@ -242,6 +255,11 @@ http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 #+RESULTS:
 : #<buffer learn>
 
+* Evil
+#+BEGIN_SRC emacs-lisp
+(require 'evil)
+(evil-mode 1)
+#+END_SRC
 * Template
 https://www.gnu.org/software/emacs/manual/html_node/org/Easy-Templates.html
 <s Tab

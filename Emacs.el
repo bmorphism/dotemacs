@@ -14,6 +14,7 @@
 (tool-bar-mode -1)
 
 (load-theme 'lab-dark t)
+(window-divider-mode 1)
 
 (set-default-font "Hack-12")
 
@@ -82,20 +83,30 @@
 
 (setq org-capture-templates
       '(
-        ("d" "daily" entry (file+datetree "~/Scriptorium/barton/System/data/daily_log.org")
-         (file "~/.emacs.d/org-templates/daily.orgtmpl"))
-        ("r" "refresh" entry (file+datetree "~/Scriptorium/barton/System/data/refresh_log.org")
-         (file "~/.emacs.d/org-templates/daily.orgtmpl"))
+        ("5" "5217" plain (file+datetree "~/Scriptorium/barton/System/data/5217_log.org")
+         (file "~/.emacs.d/org-templates/5217.orgtmpl"))
         ("j" "journal" plain (file "~/Scriptorium/barton/journal.org.gpg")
          (file "~/.emacs.d/org-templates/journal.orgtmpl"))
-
-        ("i" "inkvolt" entry (file+datetree "~/Scriptorium/barton/System/data/inkvolt_log.org")
-         (file "~/.emacs.d/org-templates/inkvolt.orgtmpl"))
+        ("r" "refresh" plain (file+datetree "~/Scriptorium/barton/System/data/refresh_log.org")
+         (file "~/.emacs.d/org-templates/refresh.orgtmpl"))
+        ("R" "Reset" plain (file+datetree "~/Scriptorium/barton/System/data/reset_log.org")
+         (file "~/.emacs.d/org-templates/reset.orgtmpl"))
 ))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python t)))
+
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading))))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 (ivy-mode 1)
 
@@ -167,5 +178,8 @@
 
 (global-set-key (kbd "C-c s") (lambda () (interactive) (dired "~/Scriptorium/")))
 (setq initial-buffer-choice (concat "~/Scriptorium/" system-name))
+
+(require 'evil)
+(evil-mode 1)
 
 
