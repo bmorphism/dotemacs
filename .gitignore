@@ -5,3 +5,6 @@ smex-items
 tramp
 session*
 *.orgtmpl
+bookmarks
+*bookmarks.eld
+recentf
