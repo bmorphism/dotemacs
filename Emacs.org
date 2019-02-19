@@ -122,13 +122,13 @@ Capture high-level information for projects.
 (setq org-capture-templates
       '(
         ("5" "5217" plain (file+datetree "~/Scriptorium/barton/System/data/5217_log.org")
-	 (file "~/.emacs.d/org-templates/5217.orgtmpl"))
+	 (file "~/Scriptorium/barton/System/org-templates/5217.orgtmpl"))
         ("j" "journal" plain (file "~/Scriptorium/barton/journal.org.gpg")
-	 (file "~/.emacs.d/org-templates/journal.orgtmpl"))
+	 (file "~/Scriptorium/barton/System/org-templates/journal.orgtmpl"))
         ("r" "refresh" plain (file+datetree "~/Scriptorium/barton/System/data/refresh_log.org")
-	 (file "~/.emacs.d/org-templates/refresh.orgtmpl"))
+	 (file "~/Scriptorium/barton/System/org-templates/refresh.orgtmpl"))
         ("R" "Reset" plain (file+datetree "~/Scriptorium/barton/System/data/reset_log.org")
-	 (file "~/.emacs.d/org-templates/reset.orgtmpl"))
+	 (file "~/Scriptorium/barton/System/org-templates/reset.orgtmpl"))
 ))
 
 #+END_SRC
