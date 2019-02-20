@@ -9,11 +9,6 @@
 (require 'pallet)
 (pallet-mode t)
 #+END_SRC
-* User items
-Avoid cluttering the file tree by storing all backups into the same location
-#+BEGIN_SRC emacs-lisp
-(load (concat "~/.emacs.d/" system-name ".el"))
-#+END_SRC
 * Appearance
 Lighter theme with minimum clutter to aid focus
 #+BEGIN_SRC emacs-lisp
@@ -91,7 +86,6 @@ Avoid cluttering the file tree by storing all backups into the same location
 
 #+RESULTS:
 : ‘epa-file’ already enabled
-
 * org-mode
 #+BEGIN_SRC emacs-lisp
 (require 'org)
@@ -259,6 +253,11 @@ http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 #+BEGIN_SRC emacs-lisp
 (require 'evil)
 (evil-mode 1)
+#+END_SRC
+* System items
+Avoid cluttering the file tree by storing all backups into the same location
+#+BEGIN_SRC emacs-lisp
+(load (concat "~/.emacs.d/" system-name ".el"))
 #+END_SRC
 * Template
 https://www.gnu.org/software/emacs/manual/html_node/org/Easy-Templates.html
