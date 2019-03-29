@@ -117,7 +117,7 @@ Capture high-level information for projects.
       '(
         ("5" "5217" plain (file+datetree "~/Scriptorium/barton/System/data/5217_log.org")
 	 (file "~/Scriptorium/barton/System/org-templates/5217.orgtmpl"))
-        ("j" "journal" plain (file "~/Scriptorium/barton/journal.org.gpg")
+        ("j" "journal" plain (file+datetree "~/Scriptorium/barton/journal.org.gpg")
 	 (file "~/Scriptorium/barton/System/org-templates/journal.orgtmpl"))
         ("r" "refresh" plain (file+datetree "~/Scriptorium/barton/System/data/refresh_log.org")
 	 (file "~/Scriptorium/barton/System/org-templates/refresh.orgtmpl"))
